@@ -57,46 +57,46 @@
       echo form_open('admin/products/add', $attributes);
       ?>
         <fieldset>
-          <div class="control-group">
-            <label for="inputError" class="control-label">Description</label>
-            <div class="controls">
-              <input type="text" id="" name="description" value="<?php echo set_value('description'); ?>" >
+          <div class="form-group">
+            <label for="inputError" class="control-label col-lg-2 ">Description</label>
+              <div class="col-lg-6">
+                <input type="text" id="" name="description" value="<?php echo set_value('description'); ?>" class="form-control">
+              </div>      
               <!--<span class="help-inline">Woohoo!</span>-->
-            </div>
           </div>
-          <div class="control-group">
-            <label for="inputError" class="control-label">Stock</label>
-            <div class="controls">
-              <input type="text" id="" name="stock" value="<?php echo set_value('stock'); ?>">
+          <div class="form-group">
+            <label for="inputError" class="control-label col-lg-2">Stock</label>
+               <div class="col-lg-6">
+              <input type="text" id="" name="stock" value="<?php echo set_value('stock'); ?>" class="form-control">
+              </div>       
               <!--<span class="help-inline">Cost Price</span>-->
-            </div>
-          </div>          
-          <div class="control-group">
-            <label for="inputError" class="control-label">Cost Price</label>
-            <div class="controls">
-              <input type="text" id="" name="cost_price" value="<?php echo set_value('cost_price'); ?>">
-              <!--<span class="help-inline">Cost Price</span>-->
-            </div>
           </div>
-          <div class="control-group">
-            <label for="inputError" class="control-label">Sell Price</label>
-            <div class="controls">
-              <input type="text" name="sell_price" value="<?php echo set_value('sell_price'); ?>">
+            
+          <div class="form-group">
+            <label for="inputError" class="control-label col-lg-2">Cost Price</label>
+               <div class="col-lg-6">
+              <input type="text" id="" name="cost_price" value="<?php echo set_value('cost_price'); ?>" class="form-control">
+              </div>
+              <!--<span class="help-inline">Cost Price</span>-->
+          </div>
+          <div class="form-group">
+            <label for="inputError" class="control-label col-lg-2">Sell Price</label>
+               <div class="col-lg-6">
+              <input type="text" name="sell_price" value="<?php echo set_value('sell_price'); ?>" class="form-control">
+              </div>
               <!--<span class="help-inline">OOps</span>-->
-            </div>
           </div>
           <?php
-          echo '<div class="control-group">';
-            echo '<label for="manufacture_id" class="control-label">Manufacture</label>';
-            echo '<div class="controls">';
+          echo '<div class="form-group">';
+            echo '<label for="manufacture_id" class="control-label col-lg-2">Manufacture</label>';
               //echo form_dropdown('manufacture_id', $options_manufacture, '', 'class="span2"');
-              
-              echo form_dropdown('manufacture_id', $options_manufacture, set_value('manufacture_id'), 'class="span2"');
-
-            echo '</div>';
-          echo '</div">';
+               echo '<div class="col-lg-6">';
+              echo form_dropdown('manufacture_id', $options_manufacture, set_value('manufacture_id'), 'class="form-control"');
+              echo '</div>';
+            
+          echo '</div>';
           ?>
-          <div class="form-actions">
+          <div class="form-actions row col-lg-offset-3">
             <button class="btn btn-primary" type="submit">Save changes</button>
             <button class="btn" type="reset">Cancel</button>
           </div>

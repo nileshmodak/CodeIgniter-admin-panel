@@ -20,12 +20,12 @@
       </div>
       
       <div class="row">
-        <div class="span12 columns">
+<!--        <div class="span12 columns">-->
           <div class="well">
            
             <?php
            
-            $attributes = array('class' => 'form-inline reset-margin', 'id' => 'myform');
+            $attributes = array('class' => 'form-inline', 'id' => 'myform');
            
             //save the columns names in a array that we will use as filter         
             $options_manufacturers = array();    
@@ -37,30 +37,40 @@
             }
 
             echo form_open('admin/manufacturers', $attributes);
-     
+            
+              echo "<div class='form-group'>";
               echo form_label('Search:', 'search_string');
-              echo form_input('search_string', $search_string_selected);
-
+              echo form_input('search_string', $search_string_selected, 'class="form-control"');
+              echo "</div>";
+            
+              echo "<div class='form-group'>";
               echo form_label('Order by:', 'order');
-              echo form_dropdown('order', $options_manufacturers, $order, 'class="span2"');
+              echo form_dropdown('order', $options_manufacturers, $order, 'class="form-control"');
+              echo "</div>";
 
               $data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Go');
 
               $options_order_type = array('Asc' => 'Asc', 'Desc' => 'Desc');
-              echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span1"');
+              echo '<div class="form-group margin_L_R_20">';
+              echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="form-control"');
+              echo '</div>';
 
+              echo '<div class="form-group">';
               echo form_submit($data_submit);
+              echo '</div>';
 
             echo form_close();
             ?>
 
           </div>
 
-          <table class="table table-striped table-bordered table-condensed">
+          <table class="table table-responsive table-striped table-bordered table-condensed">
             <thead>
               <tr>
                 <th class="header">#</th>
                 <th class="yellow header headerSortDown">Name</th>
+                <th class="edit">Edit/View</th>
+                <th class="delete">Delete</th>  
               </tr>
             </thead>
             <tbody>
@@ -70,8 +80,10 @@
                 echo '<tr>';
                 echo '<td>'.$row['id'].'</td>';
                 echo '<td>'.$row['name'].'</td>';
+                echo '<td class="crud-actions">';
+                echo '<a href="'.site_url("admin").'/manufacturers/update/'.$row['id'].'" class="btn btn-info">view & edit</a>';
+                echo '</td>';  
                 echo '<td class="crud-actions">
-                  <a href="'.site_url("admin").'/manufacturers/update/'.$row['id'].'" class="btn btn-info">view & edit</a>  
                   <a href="'.site_url("admin").'/manufacturers/delete/'.$row['id'].'" class="btn btn-danger">delete</a>
                 </td>';
                 echo '</tr>';
@@ -82,5 +94,5 @@
 
           <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
 
-      </div>
+<!--      </div>-->
     </div>

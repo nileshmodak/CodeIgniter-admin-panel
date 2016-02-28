@@ -53,14 +53,14 @@
       echo form_open('admin/manufacturers/update/'.$this->uri->segment(4).'', $attributes);
       ?>
         <fieldset>
-          <div class="control-group">
-            <label for="inputError" class="control-label">Description</label>
-            <div class="controls">
-              <input type="text" id="" name="name" value="<?php echo $manufacture[0]['name']; ?>" >
+          <div class="form-group">
+            <label for="inputError" class="control-label col-lg-2">Description</label>
+            <div class="col-lg-6">
+              <input type="text" id="" name="name" value="<?php echo $manufacture[0]['name']; ?>" class="form-control" >
               <!--<span class="help-inline">Woohoo!</span>-->
             </div>
           </div>
-          <div class="form-actions">
+          <div class="form-actions col-lg-offset-3">
             <button class="btn btn-primary" type="submit">Save changes</button>
             <button class="btn" type="reset">Cancel</button>
           </div>

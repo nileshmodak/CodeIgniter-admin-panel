@@ -34,7 +34,7 @@ class Admin_products extends CI_Controller {
         $config['base_url'] = base_url().'admin/products';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
-        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';

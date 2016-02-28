@@ -11,9 +11,24 @@
       $attributes = array('class' => 'form-signin');
       echo form_open('admin/login/validate_credentials', $attributes);
       echo '<h2 class="form-signin-heading">Login</h2>';
-      echo form_input('user_name', '', 'placeholder="Username"');
-      echo form_password('password', '', 'placeholder="Password"');
-      if(isset($message_error) && $message_error){
+      $user_field = array(
+          'name'        => 'user_name',
+          'class'       => 'form-control',
+          'value'       => '',
+          'placeholder' => 'Username'
+        );
+   
+      echo form_input($user_field);
+       $user_pwd = array(
+          'name'        => 'password',
+          'class'       => 'form-control',
+          'value'       => '',
+          'placeholder' => 'Password'
+        );
+    
+        echo form_password($user_pwd);
+     
+        if(isset($message_error) && $message_error){
           echo '<div class="alert alert-error">';
             echo '<a class="close" data-dismiss="alert">×</a>';
             echo '<strong>Oh snap!</strong> Change a few things up and try submitting again.';
@@ -23,10 +38,12 @@
       echo anchor('admin/signup', 'Signup!');
       echo "<br />";
       echo "<br />";
-      echo form_submit('submit', 'Login', 'class="btn btn-large btn-primary"');
+      echo form_submit('submit', 'Login', 'class="btn btn-lg btn-primary btn-block"');
       echo form_close();
       ?>      
-    </div><!--container-->
+    </div><!--container-->   
+      
+      
     <script src="<?php echo base_url(); ?>assets/js/jquery-1.7.1.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
   </body>
